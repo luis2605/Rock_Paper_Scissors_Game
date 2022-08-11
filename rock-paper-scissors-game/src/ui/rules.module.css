@@ -1,0 +1,20 @@
+.rules-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: calc(100vh + 5%);
+  min-width: 100vw;
+  background: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 100000;
+}
+.titel {
+  color: var(--HeaderOutline);
+}
+.exit {
+  margin-bottom: 4em;
+}

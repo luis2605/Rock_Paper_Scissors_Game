@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /*primary*/
+
+  /*neutral*/
+
+  --DarkText: hsl(229, 25%, 31%);
+  --ScoreText: hsl(229, 64%, 46%);
+  --HeaderOutline: hsl(217, 16%, 45%);
+
+  /*background*/
+
+  --RadialGradient: radial-gradient(
+    circle,
+    hsla(214, 47%, 23%, 1) 0%,
+    hsla(238, 49%, 14%, 1) 100%
+  );
+}
+
+.App {
+  background: var(--RadialGradient);
+  min-height: 100vh;
+}
