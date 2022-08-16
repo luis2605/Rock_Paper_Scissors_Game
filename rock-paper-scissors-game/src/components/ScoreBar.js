@@ -13,7 +13,7 @@ const ScoreBar = (props) => {
       <div className={classes.score}>
         {" "}
         <p className={classes["score-score"]}>Score</p>
-        <p className={classes["score-value"]}> {props.onScoreHandler}</p>
+        <p className={classes["score-value"]}> {props.onScore}</p>
       </div>
     </div>
   );

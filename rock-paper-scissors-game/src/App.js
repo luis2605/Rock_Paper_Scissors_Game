@@ -21,9 +21,6 @@ function App() {
   const PlayerSelects = (value) => {
     setPlayerSelection(value);
   };
-  console.log(playerSelection);
-  console.log(computerSelection);
-  console.log(score);
 
   const ComputerSelects = (value) => {
     setComputerSelection(value);
@@ -44,15 +41,17 @@ function App() {
     setShowGameSet(value);
     setShowGameBoard(!value);
   };
-  //sets the score
-
-  const defineScore = (value) => {
-    setScore(value++);
+  //pass the score to scoreBar
+  // start new
+  const startNew = (value) => {
+    setShowGameSet(value);
+    setShowGameBoard(!value);
   };
+  //score
 
   return (
     <div className="App">
-      <ScoreBar onScoreHandler={score} />
+      <ScoreBar onScore={score} />
       {showGameSet && (
         <GameSet
           onRulesOpenHandler={rulesOpenHandler}
@@ -70,8 +69,7 @@ function App() {
           onRulesOpenHandler={rulesOpenHandler}
           onPlayerSelection={playerSelection}
           onComputerSelection={computerSelection}
-          onDefineScore={defineScore}
-          onScore={score}
+          onShowGameSet={startNew}
         />
       )}
       {}

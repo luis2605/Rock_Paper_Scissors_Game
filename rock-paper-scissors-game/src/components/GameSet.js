@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./gameSet.module.css";
 import bkg from "../images/bg-triangle.svg";
 import paper from "../images/icon-paper.svg";
@@ -8,23 +8,25 @@ import scissors from "../images/icon-scissors.svg";
 const GameSet = (props) => {
   const randomNumber = Math.floor(Math.random() * 3);
 
-  const onPlayerSelectsPaper = () => {
+  const logic = () => {
     console.log(props);
+  };
+
+  const onPlayerSelectsPaper = () => {
     props.onGameSetClose(false);
     props.onComputerSelectionHandler(randomNumber);
-    return props.onPlayerSelectionHandler(0);
+    props.onPlayerSelectionHandler(0);
   };
   const onPlayerSelectsRock = () => {
     props.onGameSetClose(false);
     props.onComputerSelectionHandler(randomNumber);
-    return props.onPlayerSelectionHandler(1);
+    props.onPlayerSelectionHandler(1);
   };
   const onPlayerSelectsScissors = () => {
     props.onGameSetClose(false);
     props.onComputerSelectionHandler(randomNumber);
-    return props.onPlayerSelectionHandler(2);
+    props.onPlayerSelectionHandler(2);
   };
-
   const onOpenRules = () => {
     return props.onRulesOpenHandler(true);
   };

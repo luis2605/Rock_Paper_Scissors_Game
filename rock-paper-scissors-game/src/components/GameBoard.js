@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./gameBoard.module.css";
 import paper from "../images/icon-paper.svg";
 import rock from "../images/icon-rock.svg";
 import scissors from "../images/icon-scissors.svg";
 
 const GameBoard = (props) => {
+  const [result, setResult] = useState("");
+
   const onOpenRules = () => {
     return props.onRulesOpenHandler(true);
   };
@@ -55,24 +57,47 @@ const GameBoard = (props) => {
       return classes.scissors;
     }
   };
-  //define score
-  const defineScore = () => {
+  //define winner
+  useEffect(() => {
     if (props.onPlayerSelection === 0 && props.onComputerSelection === 1) {
-      return props.onDefineScore(+1);
-    }
-    if (props.onPlayerSelection === 1 && props.onComputerSelection === 2) {
-      return props.onDefineScore(+1);
-    }
-    if (props.onPlayerSelection === 2 && props.onComputerSelection === 0) {
-      return props.onDefineScore(+1);
+      setResult("You win");
+    } else if (
+      props.onPlayerSelection === 1 &&
+      props.onComputerSelection === 2
+    ) {
+      setResult("You win");
+    } else if (
+      props.onPlayerSelection === 2 &&
+      props.onComputerSelection === 0
+    ) {
+      setResult("You win");
+    } else if (
+      props.onPlayerSelection === 0 &&
+      props.onComputerSelection === 0
+    ) {
+      setResult("it is a Tie");
+    } else if (
+      props.onPlayerSelection === 1 &&
+      props.onComputerSelection === 1
+    ) {
+      setResult("it is a Tie");
+    } else if (
+      props.onPlayerSelection === 2 &&
+      props.onComputerSelection === 2
+    ) {
+      setResult("it is a Tie");
     } else {
-      return props.onDefineScore(-1);
+      setResult("You lose");
     }
-    console.log(props.onPlayerSelection);
-    console.log(props.onComputerSelection);
+  }, [props.onPlayerSelection, props.onComputerSelection, result]);
+
+  //restarting
+
+  const restart = () => {
+    props.onShowGameSet(true);
   };
 
-  defineScore();
+  //set score
 
   return (
     <div className={classes.container}>
@@ -99,6 +124,12 @@ const GameBoard = (props) => {
           </div>
           <p className={classes.text}>the house picked</p>
         </div>
+      </div>
+      <div className={classes["game-result"]}>
+        <h2 className={classes["game-result_titel"]}>{result}</h2>
+        <button onClick={restart} className={classes.restart}>
+          Play again
+        </button>
       </div>
       <button onClick={onOpenRules} className={classes.rules}>
         Rules
