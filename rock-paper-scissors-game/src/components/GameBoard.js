@@ -6,7 +6,7 @@ import scissors from "../images/icon-scissors.svg";
 
 const GameBoard = (props) => {
   const [result, setResult] = useState("");
-
+  const [score, setScore] = useState(0);
   const onOpenRules = () => {
     return props.onRulesOpenHandler(true);
   };
@@ -58,6 +58,7 @@ const GameBoard = (props) => {
     }
   };
   //define winner
+
   useEffect(() => {
     if (props.onPlayerSelection === 0 && props.onComputerSelection === 1) {
       setResult("You win");
@@ -89,12 +90,21 @@ const GameBoard = (props) => {
     } else {
       setResult("You lose");
     }
+
+    // console.log(score)
   }, [props.onPlayerSelection, props.onComputerSelection, result]);
 
   //restarting
 
   const restart = () => {
     props.onShowGameSet(true);
+
+    if (result === "You win") {
+      setScore((score) => score + 1);
+    } else {
+      setScore((score) => score - 1);
+    }
+    console.log(score);
   };
 
   //set score
