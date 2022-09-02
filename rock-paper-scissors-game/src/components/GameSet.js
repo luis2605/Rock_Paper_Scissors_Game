@@ -8,10 +8,6 @@ import scissors from "../images/icon-scissors.svg";
 const GameSet = (props) => {
   const randomNumber = Math.floor(Math.random() * 3);
 
-  const logic = () => {
-    console.log(props);
-  };
-
   const onPlayerSelectsPaper = () => {
     props.onGameSetClose(false);
     props.onComputerSelectionHandler(randomNumber);

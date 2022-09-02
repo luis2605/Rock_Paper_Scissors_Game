@@ -52,27 +52,11 @@ function App() {
   return (
     <div className="App">
       <ScoreBar onScore={score} />
-      {showGameSet && (
-        <GameSet
-          onRulesOpenHandler={rulesOpenHandler}
-          onPlayerSelectionHandler={PlayerSelects}
-          onComputerSelectionHandler={ComputerSelects}
-          onGameSetClose={gameSetClose}
-        />
-      )}
+
       {ReactDOM.createPortal(
         rulesOpen && <Rules onRulesCloseHandler={rulesCloseHandler} />,
         document.getElementById("rules")
       )}
-      {showGameBoard && (
-        <GameBoard
-          onRulesOpenHandler={rulesOpenHandler}
-          onPlayerSelection={playerSelection}
-          onComputerSelection={computerSelection}
-          onShowGameSet={startNew}
-        />
-      )}
-      {}
     </div>
   );
 }

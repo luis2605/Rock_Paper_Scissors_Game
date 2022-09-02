@@ -62,33 +62,44 @@ const GameBoard = (props) => {
   useEffect(() => {
     if (props.onPlayerSelection === 0 && props.onComputerSelection === 1) {
       setResult("You win");
-    } else if (
-      props.onPlayerSelection === 1 &&
-      props.onComputerSelection === 2
-    ) {
+      setScore((score) => {
+        return score + 1;
+      });
+    }
+    if (props.onPlayerSelection === 1 && props.onComputerSelection === 2) {
       setResult("You win");
-    } else if (
-      props.onPlayerSelection === 2 &&
-      props.onComputerSelection === 0
-    ) {
+      setScore((score) => {
+        return score + 1;
+      });
+    }
+    if (props.onPlayerSelection === 2 && props.onComputerSelection === 0) {
       setResult("You win");
-    } else if (
-      props.onPlayerSelection === 0 &&
-      props.onComputerSelection === 0
-    ) {
+      setScore((score) => {
+        return score + 1;
+      });
+    }
+    if (props.onPlayerSelection === 0 && props.onComputerSelection === 0) {
       setResult("it is a Tie");
-    } else if (
-      props.onPlayerSelection === 1 &&
-      props.onComputerSelection === 1
-    ) {
+      setScore((score) => {
+        return score;
+      });
+    }
+    if (props.onPlayerSelection === 1 && props.onComputerSelection === 1) {
       setResult("it is a Tie");
-    } else if (
-      props.onPlayerSelection === 2 &&
-      props.onComputerSelection === 2
-    ) {
+      setScore((score) => {
+        return score;
+      });
+    }
+    if (props.onPlayerSelection === 2 && props.onComputerSelection === 2) {
       setResult("it is a Tie");
+      setScore((score) => {
+        return score;
+      });
     } else {
       setResult("You lose");
+      setScore((score) => {
+        return score - 1;
+      });
     }
 
     // console.log(score)
@@ -98,12 +109,6 @@ const GameBoard = (props) => {
 
   const restart = () => {
     props.onShowGameSet(true);
-
-    if (result === "You win") {
-      setScore((score) => score + 1);
-    } else {
-      setScore((score) => score - 1);
-    }
     console.log(score);
   };
 
