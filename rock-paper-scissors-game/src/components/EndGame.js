@@ -49,6 +49,7 @@ const EndGame = ({
 
     return () => clearTimeout(timer);
   }, [onComputerSelection, onWhoWon]);
+
   const restartGame = () => {
     onBoardShownHandler(true);
   };

@@ -29,8 +29,6 @@ const GameStart = ({ onRulesOpenHandler, onResult, onPassScore }) => {
 
   // open Rules portal
   const openRules = () => {
-    console.log(onRulesOpenHandler);
-
     return onRulesOpenHandler(true);
   };
 
@@ -64,8 +62,9 @@ const GameStart = ({ onRulesOpenHandler, onResult, onPassScore }) => {
       setScore(score);
     }
     onResult(whoWon);
-    console.log(score);
-  }, [playerSelection, onResult, whoWon]);
+  }, [playerSelection, computerSelection]);
+
+  useEffect(() => {}, [whoWon]);
 
   return (
     <div className={classes["gameSet-container"]}>
