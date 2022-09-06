@@ -1,0 +1,61 @@
+.gameSet-container {
+  max-width: 370px;
+  margin: 2em auto;
+  padding: 1em 0;
+}
+
+.gameSet-board {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  grid-template-areas:
+    "paper scissors"
+    " rock rock";
+  background-image: url("../images/bg-triangle.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin: 5em auto 1em auto;
+}
+.gameSet-board img {
+  width: 100px;
+
+  object-fit: fill;
+  object-position: center;
+  padding: 1.4em;
+  background-color: aliceblue;
+  border-radius: 50%;
+  border: 4px solid gainsboro;
+}
+.gameSet-paper {
+  grid-area: paper;
+  outline: 15px solid rgb(75, 75, 214);
+  box-shadow: 2px 18px 13px 0px rgba(0, 0, 0, 0.66);
+  margin-bottom: 3em;
+}
+.gameSet-scissors {
+  grid-area: scissors;
+  outline: 15px solid rgba(245, 211, 59, 0.884);
+  box-shadow: 2px 18px 13px 0px rgba(0, 0, 0, 0.66);
+}
+.gameSet-rock {
+  grid-area: rock;
+  outline: 15px solid rgba(245, 71, 59, 0.884);
+  box-shadow: 2px 18px 13px 0px rgba(0, 0, 0, 0.66);
+}
+
+.gameSet-btn {
+  position: absolute;
+  max-width: 150px;
+  bottom: 2em;
+  left: 0;
+  right: 0;
+  /* margin: 15em auto 1em auto; */
+  padding: 1em 3em;
+  margin: 0 auto;
+  background: transparent;
+  border: 3px solid var(--HeaderOutline);
+  color: var(--HeaderOutline);
+  border-radius: 10px;
+  text-transform: uppercase;
+}

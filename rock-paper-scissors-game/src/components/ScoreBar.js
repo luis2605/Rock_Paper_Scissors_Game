@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./scoreBar.module.css";
 
-const ScoreBar = (props) => {
+const ScoreBar = ({ onScore }) => {
   return (
     <div className={classes.container}>
       <div className={classes.name}>
@@ -13,7 +13,7 @@ const ScoreBar = (props) => {
       <div className={classes.score}>
         {" "}
         <p className={classes["score-score"]}>Score</p>
-        <p className={classes["score-value"]}> {props.onScore}</p>
+        <p className={classes["score-value"]}> {onScore}</p>
       </div>
     </div>
   );

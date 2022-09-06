@@ -1,30 +1,15 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import GameSet from "./components/GameSet";
+
 import ScoreBar from "./components/ScoreBar";
 import Rules from "./ui/Rules";
-import GameBoard from "./components/GameBoard";
+
+import GameStart from "./components/GameStart";
 
 function App() {
   const [rulesOpen, setRulesOpen] = useState(false);
-
-  const [playerSelection, setPlayerSelection] = useState("");
-  const [computerSelection, setComputerSelection] = useState("");
-
-  const [showGameBoard, setShowGameBoard] = useState(false);
-  const [showGameSet, setShowGameSet] = useState(true);
-
-  const [score, setScore] = useState(12);
-
-  //gives a player selection in number 0-2
-  const PlayerSelects = (value) => {
-    setPlayerSelection(value);
-  };
-
-  const ComputerSelects = (value) => {
-    setComputerSelection(value);
-  };
+  const [score, setScore] = useState("");
 
   // shows rules
   const rulesCloseHandler = (value) => {
@@ -35,19 +20,16 @@ function App() {
     setRulesOpen(value);
   };
 
-  //closes gameSet and shows GameBoard
+  //get whoWon from GameStart
 
-  const gameSetClose = (value) => {
-    setShowGameSet(value);
-    setShowGameBoard(!value);
+  const result = (value) => {
+    console.log(value);
   };
-  //pass the score to scoreBar
-  // start new
-  const startNew = (value) => {
-    setShowGameSet(value);
-    setShowGameBoard(!value);
-  };
+
   //score
+  const passScore = (value) => {
+    setScore(value);
+  };
 
   return (
     <div className="App">
@@ -57,6 +39,12 @@ function App() {
         rulesOpen && <Rules onRulesCloseHandler={rulesCloseHandler} />,
         document.getElementById("rules")
       )}
+
+      <GameStart
+        onPassScore={passScore}
+        onResult={result}
+        onRulesOpenHandler={rulesOpenHandler}
+      />
     </div>
   );
 }
