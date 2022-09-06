@@ -105,10 +105,12 @@ const GameStart = ({ onRulesOpenHandler, onResult, onPassScore }) => {
         />
       )}
 
-      <button onClick={openRules} className={classes["gameSet-btn"]}>
-        {" "}
-        Rules
-      </button>
+      {boardShown && (
+        <button onClick={openRules} className={classes["gameSet-btn"]}>
+          {" "}
+          Rules
+        </button>
+      )}
     </div>
   );
 };
