@@ -26,3 +26,10 @@
   background: var(--RadialGradient);
   min-height: 100vh;
 }
+@media (min-width: 500px) {
+  .App {
+    max-width: 700px;
+    margin: 2em auto 0 auto;
+    border-radius: 10px;
+  }
+}
